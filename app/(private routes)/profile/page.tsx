@@ -2,7 +2,7 @@ import Link from "next/link";
 import css from "./ProfilePage.module.css";
 import Image from "next/image";
 import { Metadata } from "next";
-import { getServerMe } from '@/lib/api/serverApi';
+import { getServerMe } from "@/lib/api/serverApi";
 
 export const metadata: Metadata = {
   title: "NoteHub App",
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "NoteHub App Profile Page",
     description: "Profile page of NoteHub App",
-    url: "https://08-zustand-sandy-iota.vercel.app/",
+    url: "https://09-auth-liard-omega.vercel.app/profile",
     images: [
       {
         url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",

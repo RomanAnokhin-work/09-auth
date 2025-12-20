@@ -4,12 +4,12 @@ import css from "./SignUpPage.module.css";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { register, RegisterRequest } from "@/lib/api/clientApi";
-import { useAuthStore } from '@/lib/store/authStore';
+import { useAuthStore } from "@/lib/store/authStore";
 
 function SignUpPage() {
   const router = useRouter();
-    const [error, setError] = useState("");
-    const setUser = useAuthStore((state) => state.setUser)
+  const [error, setError] = useState("");
+  const setUser = useAuthStore((state) => state.setUser);
 
   const handleSubmit = async (formData: FormData) => {
     try {
@@ -26,8 +26,8 @@ function SignUpPage() {
       };
 
       const res = await register(formValues);
-        if (res) {
-          setUser(res)
+      if (res) {
+        setUser(res);
         router.push("/profile");
       } else {
         setError("Invalid email or password");
@@ -35,8 +35,8 @@ function SignUpPage() {
     } catch (error) {
       setError((error as Error).message ?? "Oops... some error");
     }
-    };
-    
+  };
+
   return (
     <main className={css.mainContent}>
       <h1 className={css.formTitle}>Sign up</h1>

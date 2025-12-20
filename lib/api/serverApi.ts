@@ -15,7 +15,7 @@ interface FetchNotesResponse {
 async function fetchServerNotes(
   currentPage: number,
   searchQuery: string,
-  tag?: string
+  tag?: string,
 ): Promise<FetchNotesResponse> {
   const params: {
     page: number;
@@ -60,11 +60,16 @@ async function getServerMe(): Promise<User> {
 }
 
 async function checkServerSession() {
-    const cookieStore = await cookies();
-    const res = await instance.get('/auth/session', {
-        headers: { Cookie : cookieStore.toString()}
-    })
-    return res;
+  const cookieStore = await cookies();
+  const res = await instance.get("/auth/session", {
+    headers: { Cookie: cookieStore.toString() },
+  });
+  return res;
 }
 
-export { fetchServerNotes, fetchServerNoteById, getServerMe, checkServerSession };
+export {
+  fetchServerNotes,
+  fetchServerNoteById,
+  getServerMe,
+  checkServerSession,
+};

@@ -4,12 +4,12 @@ import css from "./SignInPage.module.css";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { login, LoginRequest } from "@/lib/api/clientApi";
-import { useAuthStore } from '@/lib/store/authStore';
+import { useAuthStore } from "@/lib/store/authStore";
 
 function SignInPage() {
   const router = useRouter();
-    const [error, setError] = useState("");
-    const setUser = useAuthStore((state) => state.setUser)
+  const [error, setError] = useState("");
+  const setUser = useAuthStore((state) => state.setUser);
 
   const handleSubmit = async (formData: FormData) => {
     try {
@@ -27,8 +27,8 @@ function SignInPage() {
 
       const res = await login(formValues);
 
-        if (res) {
-          setUser(res)
+      if (res) {
+        setUser(res);
         router.push("/profile");
       } else {
         setError("Invalid email or password");
@@ -70,7 +70,7 @@ function SignInPage() {
           </button>
         </div>
 
-       {error && <p className={css.error}>{error}</p>}
+        {error && <p className={css.error}>{error}</p>}
       </form>
     </main>
   );

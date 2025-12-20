@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "NoteHub App",
     description: "App to manage and oraganize notes efficiently",
-    url: "https://08-zustand-sandy-iota.vercel.app/",
+    url: "https://09-auth-liard-omega.vercel.app/",
     images: [
       {
         url: "https://ac.goit.global/fullstack/react/notehub-og-meta.jpg",
@@ -44,11 +44,11 @@ export default function RootLayout({
       <body className={`${roboto.variable}`}>
         <TanStackProvider>
           <AuthProvider>
-          <Header />
-          <main>
-            {children}
-            {modal}
-          </main>
+            <Header />
+            <main>
+              {children}
+              {modal}
+            </main>
             <Footer />
           </AuthProvider>
         </TanStackProvider>

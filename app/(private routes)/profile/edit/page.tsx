@@ -74,9 +74,9 @@ function EditProfilePage() {
             >
               Cancel
             </button>
-                  </div>
-                  
-                  {error && <p className={css.error}>{error}</p>}
+          </div>
+
+          {error && <p className={css.error}>{error}</p>}
         </form>
       </div>
     </main>

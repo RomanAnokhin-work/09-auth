@@ -31,7 +31,7 @@ interface DeleteNoteResponse {
   note: Note;
 }
 
- interface RegisterRequest {
+interface RegisterRequest {
   email: string;
   password: string;
 }
@@ -46,14 +46,14 @@ interface CheckSessionResponse {
 }
 
 interface UpdateMeRequest {
-    email: string;
-    username: string;
+  email: string;
+  username: string;
 }
 
 async function fetchNotes(
   currentPage: number,
   searchQuery: string,
-  tag?: string
+  tag?: string,
 ): Promise<FetchNotesResponse> {
   const params: {
     page: number;
@@ -85,7 +85,7 @@ async function fetchNoteById(id: string): Promise<Note> {
 }
 
 async function createNote(
-  noteData: CreateNoteRequest
+  noteData: CreateNoteRequest,
 ): Promise<CreateNoteResponse> {
   const { data } = await instance.post<CreateNoteResponse>("/notes", noteData);
   return data;
@@ -121,10 +121,20 @@ async function getMe(): Promise<User> {
 }
 
 async function updateMe(updateMeData: UpdateMeRequest): Promise<User> {
-    const { data } = await instance.patch<User>('/users/me', updateMeData);
-    return data;
+  const { data } = await instance.patch<User>("/users/me", updateMeData);
+  return data;
 }
 
-
-export { fetchNotes, fetchNoteById, createNote, deleteNote, register, login, logout, checkSession, getMe, updateMe };
+export {
+  fetchNotes,
+  fetchNoteById,
+  createNote,
+  deleteNote,
+  register,
+  login,
+  logout,
+  checkSession,
+  getMe,
+  updateMe,
+};
 export type { RegisterRequest, LoginRequest, UpdateMeRequest };

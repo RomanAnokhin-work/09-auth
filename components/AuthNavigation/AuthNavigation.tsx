@@ -16,8 +16,7 @@ function AuthNavigation() {
   const handleLogout = async () => {
     await logout();
     clearIsAuthenticated();
-    router.push('/sign-in');
-
+    router.push("/sign-in");
   };
 
   return isAuthenticated ? (
@@ -30,7 +29,9 @@ function AuthNavigation() {
 
       <li className={css.navigationItem}>
         <p className={css.userEmail}>{user?.email}</p>
-        <button className={css.logoutButton} onClick={handleLogout}>Logout</button>
+        <button className={css.logoutButton} onClick={handleLogout}>
+          Logout
+        </button>
       </li>
     </>
   ) : (
