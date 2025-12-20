@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import css from "./EditProfilePage.module.css";
 import { updateMe, UpdateMeRequest } from "@/lib/api/clientApi";
