@@ -53,7 +53,7 @@ async function fetchServerNoteById(id: string): Promise<Note> {
 
 async function getServerMe(): Promise<User> {
   const cookieStore = await cookies();
-  const { data } = await instance.get<User>("/auth/me", {
+  const { data } = await instance.get<User>("/users/me", {
     headers: { Cookie: cookieStore.toString() },
   });
   return data;

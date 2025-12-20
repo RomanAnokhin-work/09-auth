@@ -48,7 +48,7 @@ function EditProfilePage() {
         <h1 className={css.formTitle}>Edit Profile</h1>
 
         <Image
-          src="avatar"
+          src={user?.avatar || "Avatar"}
           alt="User Avatar"
           width={120}
           height={120}
@@ -58,10 +58,26 @@ function EditProfilePage() {
         <form className={css.profileInfo} action={handleSubmit}>
           <div className={css.usernameWrapper}>
             <label htmlFor="username">Username:</label>
-            <input id="username" type="text" className={css.input} />
+            <input
+              name="username"
+              id="username"
+              defaultValue={user?.username}
+              type="text"
+              className={css.input}
+            />
           </div>
 
-          <p>Email: {user?.email}</p>
+          <div className={css.usernameWrapper}>
+            <label htmlFor="email">Email:</label>
+            <input
+              id="email"
+              name="email"
+              type="email"
+              value={user?.email}
+              readOnly
+              className={css.inputReadonly}
+            />
+          </div>
 
           <div className={css.actions}>
             <button type="submit" className={css.saveButton}>

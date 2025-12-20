@@ -11,14 +11,15 @@ import Pagination from "@/components/Pagination/Pagination";
 import SearchBox from "@/components/SearchBox/SearchBox";
 import { useDebouncedCallback } from "use-debounce";
 // import NoteForm from "@/components/NoteForm/NoteForm";
-import { useRouter } from "next/navigation";
+// import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 interface NotesProps {
   tag?: string;
 }
 
 export default function Notes({ tag }: NotesProps) {
-  const router = useRouter();
+  // const router = useRouter();
   const [currentPage, setCurrentPage] = useState<number>(1);
   // const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
   const [searchQuery, setSearchQuery] = useState<string>("");
@@ -47,10 +48,10 @@ export default function Notes({ tag }: NotesProps) {
     300,
   );
 
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    event.preventDefault();
-    router.push("/notes/action/create");
-  };
+  // const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+  //   event.preventDefault();
+  //   router.push("/notes/action/create");
+  // };
 
   return (
     <div className={css.app}>
@@ -63,9 +64,12 @@ export default function Notes({ tag }: NotesProps) {
             setPage={setPage}
           />
         )}
-        <button className={css.button} onClick={handleClick}>
+        {/* <button className={css.button} onClick={handleClick}>
           Create note +
-        </button>
+        </button> */}
+        <Link href={"/notes/action/create"} className={css.button}>
+          Create note +
+        </Link>
       </header>
 
       {notes.length > 0 && <NoteList notes={notes} />}

@@ -1,4 +1,4 @@
-import { fetchNoteById } from "@/lib/api/clientApi";
+import { fetchServerNoteById } from "@/lib/api/serverApi";
 import NotePreview from "./NotePreview.client";
 import {
   QueryClient,
@@ -17,7 +17,7 @@ export default async function NotePreviewPage(props: NotePreviewPageProps) {
 
   await queryClient.prefetchQuery({
     queryKey: ["note", id],
-    queryFn: () => fetchNoteById(id),
+    queryFn: () => fetchServerNoteById(id),
   });
 
   const dehydratedState = dehydrate(queryClient);
