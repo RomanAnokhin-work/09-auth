@@ -9,7 +9,6 @@ type Props = {
 
 const AuthLayout = ({ children }: Props) => {
  
-
   const router = useRouter();
 
   useEffect(() => {
